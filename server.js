@@ -64,7 +64,7 @@ app.get('/category-playlists', function (request, response) {
   
   // Get playlists from a browse category
   // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-  spotifyApi.getPlaylistsForCategory('latin', { limit : 5 })
+  spotifyApi.getPlaylistsForCategory('latin', { limit : 10 })
     .then(function(data) {
     
     // Send the list of playlists
