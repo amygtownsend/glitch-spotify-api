@@ -13,6 +13,18 @@ $(function() {
     var trackName = $('<h3>' + data.name + '</h3>');
     trackName.appendTo('#search-track-container');
     
+    var artistsArr = [];
+    
+    data.artists.forEach(function(element) {
+      artistsArr.push(element.name); 
+    });
+    
+    var artists = artistsArr.join(', ');
+    
+    // Display artists' names
+    var artistName = $('<h5>' + artists + '</h5>');
+    artistName.appendTo('#search-track-container');
+    
     // Display the album art
     var img = $('<img/>');
     img.attr('src', data.album.images[0].url);
