@@ -10,7 +10,7 @@ $(function() {
     console.groupEnd();
     
     // Display the track name
-    var trackName = $('<h3>' + data.name + '</h3>');
+    var trackName = $('<a href="' + data.external_urls.spotify + '" target="_blank"><h3>' + data.name + '</h3></a>');
     trackName.appendTo('#search-track-container');
     
     var artistsArr = [];
