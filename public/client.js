@@ -37,7 +37,7 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
-    // Display the covers of the playlists
+    Display the covers of the playlists
     data.items.map(function(playlist, i) {
       var img = $('<img class="cover-image"/>');
       img.attr('src', playlist.images[0].url);

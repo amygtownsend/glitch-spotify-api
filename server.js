@@ -81,17 +81,19 @@ app.get('/category-playlists', function (request, response) {
   
   
   countries.forEach((c) => {
-    console.log(c);
-    
-    console.log(new Date());
     
     spotifyApi.getPlaylistsForCategory('latin', { country: c.code, limit : 10 })
       .then((data) => {
          
       c.data = data.body.playlists;
-      
       while (countries.filter(c => c.data !== undefined).length === countries.length) {
-        response.send(countries.data);
+        let allData = [];
+        let i = 0;
+        countries.forEach((c) => {
+          allData[i] = c.data;
+          i++;
+        });
+        response.send(allData);
       }
     }, (err) => {
       console.error(err);
