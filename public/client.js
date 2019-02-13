@@ -87,6 +87,10 @@ $(function() {
     // Display the artist's popularity
     var popularity = $('<h4>' + 'Popularity: ' + data.popularity + '</h4>');
     popularity.appendTo('#artist-container');
+    
+    // Display the artist's followers
+    var followers = $('<h4>' + 'Followers: ' + data.followers.total + '</h4>');
+    followers.appendTo('#artist-container');
   });
   
   $.get('/artist-top-tracks', function(data) {
