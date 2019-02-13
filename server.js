@@ -80,29 +80,23 @@ app.get('/category-playlists', function (request, response) {
   ];
   
   
-//   countries.forEach((country) => {
-//     console.log(country);
+  countries.forEach((c) => {
+    console.log(c);
     
-//     console.log(new Date());
+    console.log(new Date());
     
-    spotifyApi.getPlaylistsForCategory('latin', { country: countries[0].code, limit : 10 })
+    spotifyApi.getPlaylistsForCategory('latin', { country: c.code, limit : 10 })
       .then((data) => {
-
-      countries[0].data = data.body.playlists;
-      spotifyApi.getPlaylistsForCategory('latin', { country: countries[1].code, limit : 10 })
-        .then((data) => {
-
-          countries[1].data = data.body.playlists;
-          console.log(countries);
-          response.send(countries[0].data + countries[1].data);
-    
-        }, (err) => {
-        console.error(err);
-      });
-    
+         
+      c.data = data.body.playlists;
+      
+      while (countries.filter(c => c.data !== undefined).length === countries.length) {
+        response.send(countries.data);
+      }
     }, (err) => {
       console.error(err);
     });
+  });
 });
 
 app.get('/audio-features', function (request, response) {
