@@ -87,13 +87,13 @@ app.get('/category-playlists', function (request, response) {
          
       c.data = data.body.playlists;
       while (countries.filter(c => c.data !== undefined).length === countries.length) {
-        let allData = [];
-        let i = 0;
-        countries.forEach((c) => {
-          allData[i] = c.data;
-          i++;
-        });
-        response.send(allData);
+        // let allData = [];
+        // let i = 0;
+        // countries.forEach((c) => {
+        //   allData[i] = c.data;
+        //   i++;
+        // });
+        response.send(countries);
       }
     }, (err) => {
       console.error(err);

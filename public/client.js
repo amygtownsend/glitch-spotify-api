@@ -37,11 +37,15 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
-    Display the covers of the playlists
-    data.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
+    // Display the covers of the playlists
+    data.forEach((data) => {
+      var name = $('<h2>' + data.name);
+      
+      data.data.items.map(function(playlist, i) {
+        var img = $('<img class="cover-image"/>');
+        img.attr('src', playlist.images[0].url);
+        img.appendTo('#category-playlists-container');
+      });
     });
   });
   
