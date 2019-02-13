@@ -117,6 +117,20 @@ app.get('/artist-top-tracks', function (request, response) {
     });
 });
 
+app.get('/new-releases', function (request, response) {
+  
+  // Get new releases in a country
+  spotifyApi.getNewReleases('US')
+    .then(function(data) {
+    
+      // Send the list of tracks
+      response.send(data.body.albums);
+    
+    }, function(err) {
+      console.error(err);
+    });
+});
+
 
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//

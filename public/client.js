@@ -105,5 +105,19 @@ $(function() {
       trackName.appendTo('#top-tracks-container');
     });
   });
+  
+  $.get('/new-releases', function(data) {
+    // "Data" is the object we get from the API. See server.js for the function that returns it.
+    console.group('%cResponse from /new-releases', 'color: #F037A5; font-size: large');
+    console.log(data);
+    console.groupEnd();
+    
+    // Display the covers of the new releases
+    data.items.map(function(album, i) {
+      var img = $('<img class="cover-image"/>');
+      img.attr('src', album.images[0].url);
+      img.appendTo('#new-releases-container');
+    });
+  });
 
 });
