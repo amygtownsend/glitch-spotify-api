@@ -68,25 +68,30 @@ app.get('/category-playlists', function (request, response) {
   // Country names and country codes
   // let countries = ["Peru", "Colombia"];
   
-  let countries = {
-    name: "Peru",
-    code: "PE"
-  }, 
-  {
-    name: "Colombia",
-    code: "CO"
-  }
-
+  let countries = [
+    {
+      name: "Peru",
+      code: "PE"
+    },
+    {
+      name: "Colombia",
+      code: "CO"
+    }
+  ];
   
-  spotifyApi.getPlaylistsForCategory('latin', { country: 'PE', limit : 10 })
-    .then(function(data) {
+  countries.forEach((country) => {
+    console.log(country);
     
-    // Send the list of playlists
-    response.send(data.body.playlists);
+    spotifyApi.getPlaylistsForCategory('latin', { country: country.code, limit : 10 })
+      .then((data) => {
     
-  }, function(err) {
-    console.error(err);
-  });
+      // Send the list of playlists
+      response.send(data.body.playlists);
+    
+    }, (err) => {
+      console.error(err);
+    });
+  }); 
 });
 
 app.get('/audio-features', function (request, response) {
