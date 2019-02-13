@@ -106,7 +106,7 @@ app.get('/artist', function (request, response) {
 app.get('/artist-top-tracks', function (request, response) {
   
   // Get an artist's top tracks in a country
-  spotifyApi.getArtistTopTracks('0LcJLqbBmaGUft1e9Mm8HV', 'SE')
+  spotifyApi.getArtistTopTracks('7EQ0qTo7fWT7DPxmxtSYEc', 'SE')
     .then(function(data) {
     
       // Send the list of tracks
