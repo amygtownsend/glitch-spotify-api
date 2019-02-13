@@ -64,6 +64,20 @@ app.get('/category-playlists', function (request, response) {
   
   // Get playlists from a browse category
   // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
+  
+  // Country names and country codes
+  // let countries = ["Peru", "Colombia"];
+  
+  let countries = {
+    name: "Peru",
+    code: "PE"
+  }, 
+  {
+    name: "Colombia",
+    code: "CO"
+  }
+
+  
   spotifyApi.getPlaylistsForCategory('latin', { country: 'PE', limit : 10 })
     .then(function(data) {
     
